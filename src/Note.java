@@ -19,6 +19,15 @@ public class Note {
 		this.date = date;
 		this.type = type;
 	}
+	
+	public Note(String matiere, float valeur, TypeEval type) {
+		super();
+		this.matiere = matiere;
+		this.valeur = valeur;
+		this.date = LocalDate.now();
+		this.type = type;
+	}
+	
 	public String getMatiere() {
 		return matiere;
 	}

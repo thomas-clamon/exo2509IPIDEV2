@@ -24,7 +24,50 @@ public class Main {
 		
 		
 		Etudiant p = new Etudiant(nom, prenom, jour, mois, annee);
-		System.out.println(p.calculerMoyenne());
+		
+		boolean continuer = true;
+		
+		while (continuer) {
+			System.out.println("voulez vous saisir une note oui / non");
+			String valeur = sc.next();
+			if (valeur.equals("non"))
+				continuer = false;
+			else
+			{
+				// on saisie le nom de la matiere
+				System.out.println("veuillez saisir le libelle");
+				String matiere = sc.next();
+				
+				// on saisie la note
+				System.out.println("veuillez saisir la valeur");
+				float note = sc.nextFloat();
+				
+				// on saisie la type
+				System.out.println("veuillez choisir un type 1 TP; 2 Oral; 3 Devoir");
+				int choix = sc.nextInt();
+				TypeEval type = null;
+				switch (choix) {
+				
+				case 1:
+					type = TypeEval.TP;
+					break;
+				case 2:
+					type = TypeEval.Oral;
+				case 3:
+					type = TypeEval.Devoir;
+				default :
+					type = TypeEval.Devoir;
+				
+				}
+				// on cree la note
+				Note n = new Note(matiere, note, type);
+				p.ajouterNote(n);	
+			}
+			
+		}
+		System.out.println("la moyenne est de :" + p.calculerMoyenne());
+		
+		
 		
 		
 	}
